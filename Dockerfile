@@ -12,6 +12,6 @@ WORKDIR /app
 
 COPY --from=build /app/build/libs/blog-0.0.1.jar app.jar
 
-EXPOSE 8080
+EXPOSE 9000
 
 ENTRYPOINT java -jar app.jar
