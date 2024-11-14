@@ -10,6 +10,12 @@ plugins {
 group = "top.moles"
 version = "0.0.1"
 
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
 application {
     mainClass.set("io.ktor.server.netty.EngineMain")
 
@@ -17,14 +23,8 @@ application {
     applicationDefaultJvmArgs = listOf("-Dio.ktor.development=$isDevelopment")
 }
 
-//repositories {
-//    mavenCentral()
-//}
-
 repositories {
-    maven {
-        setUrl("https://maven.aliyun.com/nexus/content/groups/public")
-    }
+    mavenCentral()
 }
 
 
