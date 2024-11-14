@@ -10,6 +10,12 @@ plugins {
 group = "top.moles"
 version = "0.0.1"
 
+ktor {
+    fatJar {
+        archiveFileName.set("fat.jar")
+    }
+}
+
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(17)
