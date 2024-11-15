@@ -4,13 +4,13 @@ WORKDIR /app
 
 COPY . .
 
-RUN gradle build -i -x test
+RUN gradle buildFatJar -i -x test
 
 FROM openjdk:17-jdk-slim AS production
 
 WORKDIR /app
 
-COPY --from=build /app/build/libs/blog-0.0.1.jar app.jar
+COPY --from=build /app/build/libs/fat.jar app.jar
 
 EXPOSE 9000
 
