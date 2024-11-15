@@ -2,6 +2,7 @@ package top.moles.plugins
 
 import io.ktor.server.application.*
 import io.ktor.server.html.*
+import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import kotlinx.html.body
 import kotlinx.html.h1
@@ -21,6 +22,12 @@ fun Application.configureRouting() {
                     }
                 }
             }
+        }
+
+        var count = 0
+        get("/count") {
+            count++
+            call.respond(mapOf("count" to count))
         }
     }
 }
